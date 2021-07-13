@@ -1,10 +1,12 @@
 import Head from 'next/head';
+import Alert from '../components/alert';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 
 export default function Home() {
   return (
     <Layout home>
+      <Alert type="error">하이</Alert>
       <Head>
         <title>{siteTitle}</title>
       </Head>
