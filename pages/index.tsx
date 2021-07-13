@@ -3,11 +3,13 @@ import Alert from '../components/alert';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
+import Link from 'next/link';
+import Date from '../components/date';
 
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
-      <Alert type="error">하이</Alert>
+      <Alert type="error">안녕하세요</Alert>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -18,12 +20,14 @@ export default function Home({ allPostsData }) {
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
         {allPostsData.map(({ id, date, title }) => (
-          <li key={id}>
-            {title}
+          <li className={utilStyles.listItem} key={id}>
+            <Link href={`/posts/${id}`}>
+              <a>{title}</a>
+            </Link>
             <br />
-            {id}
-            <br />
-            {date}
+            <small className={utilStyles.lightText}>
+              <Date dateString={date} />
+            </small>
           </li>
         ))}
       </section>
