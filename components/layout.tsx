@@ -7,7 +7,12 @@ import Link from 'next/link';
 const name = 'Jonghyeon';
 export const siteTitle = 'Jonghyeon | Intuitive Dev Player';
 
-export default function Layout({ children, home }) {
+interface LayoutProps {
+  children?;
+  home?;
+}
+
+export default function Layout({ children, home }: LayoutProps) {
   return (
     <div className={styles.container}>
       <Head>
